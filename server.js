@@ -20,25 +20,33 @@ app.get('/api/notes', (req, res) => {
 })
 
 app.post('/api/notes', (req, res) => {
-  console.log(req.body);
+
+  // * console.log(req.body);
   const newNote = req.body;
   newNote.id = uuidv4();
-  console.log(newNote);
-  const dbData = require('./db/db.json');
-  dbData.push(newNote);
-  console.log(dbData);
-  fs.writeFileSync('./db/db.json', JSON.stringify(dbData , null , 2));
+  // * console.log(newNote);
 
+  const dbData = require('./db/db.json');
+
+  // pushes the new note data into the database
+  dbData.push(newNote);
+  // * console.log(dbData);
+  
+  // write the data to the json file
+  fs.writeFileSync('./db/db.json', JSON.stringify(dbData , null , 2));
   res.send(newNote);
+})
+
+
+app.delete('/api/notes:id', (req, res) => {
+  console.log(`this is the delete route: ${req.id}`);
 
 })
 
 
 
-
-
 // * GET API route for /api/notes should read the db.json file and return all saved notes as JSON
-// todo POST /api/notes should receive a new note to save on the request body, add it to the db.jason file, and then return the new note to the client. Figure out a way to give each note a unique id when it's saved (look into Npm packages that could do this for you) That should be uuid that does that
+// * POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. Figure out a way to give each note a unique id when it's saved (look into Npm packages that could do this for you) That should be uuid that does that
 
 // * receive the notes from the request body
 // * assign an id
