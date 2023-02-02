@@ -15,9 +15,11 @@ app.use(express.static('public'));
 // todo GET html route for /notes (returns the notes.html file)
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
 
-app.get('/api/notes', (req, res) => {
-  res.json(require('./db/db.json'));
+app.get('/api/notes', (req, res) => {  
+  const stringData = fs.readFileSync('./db/db.json');
+  res.json(JSON.parse(stringData));
 })
+  // res.send("a word")
 
 app.post('/api/notes', (req, res) => {
 
@@ -26,7 +28,8 @@ app.post('/api/notes', (req, res) => {
   newNote.id = uuidv4();
   // * console.log(newNote);
 
-  const dbData = require('./db/db.json');
+  const dbData = JSON.parse(fs.readFileSync('./db/db.json'));
+
 
   // pushes the new note data into the database
   dbData.push(newNote);
@@ -38,8 +41,31 @@ app.post('/api/notes', (req, res) => {
 })
 
 
-app.delete('/api/notes:id', (req, res) => {
-  console.log(`this is the delete route: ${req.id}`);
+app.delete('/api/notes/:id', (req, res) => {
+
+  const dbData = JSON.parse(fs.readFileSync('./db/db.json'));
+  // console.log(req.params);
+  
+  const { id } = req.params;  
+  
+  const deleted = dbData.find(note => note.id === id);
+
+  if (deleted) {
+
+    console.log(deleted);
+
+    const newDbData = dbData.filter(note => note.id != id)  
+    fs.writeFileSync('./db/db.json', JSON.stringify(newDbData , null , 2));      
+    res.status(200).json(deleted);
+  } else {
+    console.log(deleted);
+    res
+      .status(404)
+      .json({ message: 'The record you are looking for does not exist'})
+  }
+
+
+  // console.log(`this is the delete route: ${res.id}`);
 
 })
 

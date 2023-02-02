@@ -5,43 +5,13 @@
     "text": "Test text"
   },
   {
-    "title": "Test one",
-    "text": "HALLLLOOOOOO",
-    "id": "b466e20d-a1b7-465c-ac7d-6213281c85b9"
+    "title": "This is the story",
+    "text": "of you",
+    "id": "e5179eab-c118-4c37-83e5-42ca17686415"
   },
   {
-    "title": "Test one",
-    "text": "HALLLLOOOOOO",
-    "id": "8a0fb9df-4c25-4e95-8ecc-2822b58c7b73"
-  },
-  {
-    "title": "Test one",
-    "text": "HALLLLOOOOOO",
-    "id": "c2c3dc91-42e1-4b1b-8451-b14c27a6e306"
-  },
-  {
-    "title": "Test one",
-    "text": "You",
-    "id": "6149fed9-bbbf-4570-95be-53dbfcddbadd"
-  },
-  {
-    "title": "Test one",
-    "text": "HALLLLOOOOOO",
-    "id": "a1836283-6eb7-4625-9886-347a43dc95d9"
-  },
-  {
-    "title": "wait a mintues",
-    "text": "i think i see",
-    "id": "4ffdf303-ec77-48c3-8b65-3f27bc5cf3ca"
-  },
-  {
-    "title": "Hi there",
-    "text": "Phil Coulson",
-    "id": "28d8eef4-1e42-4e4b-aea3-5c4273538775"
-  },
-  {
-    "title": "help",
-    "text": "what's gong on?",
-    "id": "8820926c-be51-4023-b930-12577e2491a2"
+    "title": "This story sucks",
+    "text": "because it sucks",
+    "id": "ccca7456-0681-481b-9936-3330bf4d31d5"
   }
 ]
